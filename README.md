@@ -81,6 +81,14 @@ And, to shut it down:
 docker-compose down
 ```
 
+We can install additional services too, using docker-compose.yml file:
+
+Also, remember to add it to requirements.txt if it's a python dependency.
+
+```cmd
+docker-compose up --build -d
+```
+
 ## References:
 
 - https://www.youtube.com/watch?v=0TFWtfFY87U&t - Containerize Python Applications with Docker <br>
