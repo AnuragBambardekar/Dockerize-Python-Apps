@@ -6,6 +6,10 @@ app = FastAPI()
 
 r = redis.Redis(host="redis", port=6379)
 
+import debugpy
+debugpy.listen(("0.0.0.0", 5678))
+# debugpy.wait_for_client()
+
 @app.get("/")
 def getName():
     return {"Anurag":"yolodolosolo"}

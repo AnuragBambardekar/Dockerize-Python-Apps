@@ -89,6 +89,14 @@ Also, remember to add it to requirements.txt if it's a python dependency.
 docker-compose up --build -d
 ```
 
+**Adding DEBUGGING (debugpy)**
+
+- Add debugpy to requirements.txt
+- Set a breakpoint in main.py
+- Open Run & Debug console in VSCode
+- Create a launch.json file
+- Run Debug and configure to localhost:5678
+
 ## References:
 
 - https://www.youtube.com/watch?v=0TFWtfFY87U&t - Containerize Python Applications with Docker <br>
