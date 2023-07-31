@@ -48,8 +48,38 @@ So, let's make a volume to persist the data.
 
 ```docker run -p 80:80 --name mycontainername -d -v ${pwd}:/fast-api fastapi-image``` - Docker Volumes with live reload
 
+**Download "Dev Container" extension and Enable it in VSCode.** <br>
+- Open Command Palette
+- Select - "Attach to Runnning Container"
+- You will get cmd console inside the Linux Container
 
+```cmd
+root@a1790f97b3e3:~# ls
+root@a1790f97b3e3:~# cd ..
+root@a1790f97b3e3:/# ls
+bin   dev  fast-api  lib    lib64   media  opt   root  sbin  sys  usr
+boot  etc  home      lib32  libx32  mnt    proc  run   srv   tmp  var
+root@a1790f97b3e3:/# 
+```
 
+**Making a docker-compose.yml file**
+
+Instead of:
+```cmd
+docker run -p 80:80 --name mycontainername -d -v ${pwd}:/fast-api fastapi-image
+```
+
+We can use the docker-compose.yml file, and to launch it:
+
+```cmd
+docker-compose up
+```
+
+And, to shut it down:
+
+```cmd
+docker-compose down
+```
 
 ## References:
 
