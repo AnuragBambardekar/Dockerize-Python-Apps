@@ -97,6 +97,10 @@ docker-compose up --build -d
 - Create a launch.json file
 - Run Debug and configure to localhost:5678
 
+# Container Registries
+
+
+
 ## References:
 
 - https://www.youtube.com/watch?v=0TFWtfFY87U&t - Containerize Python Applications with Docker <br>
