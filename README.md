@@ -99,7 +99,7 @@ docker-compose up --build -d
 
 # Container Registries
 
-
+Container registries are repositories that store and manage container images. Container images are standalone, executable software packages that include everything needed to run a piece of software, including the code, runtime, system tools, system libraries, and settings.
 
 ## References:
 
