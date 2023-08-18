@@ -1,4 +1,4 @@
-# Instructions to run to Push to GitHub:
+# Instructions to run for Pushing an image to GitHub:
 ```cmd
 docker login --username AnuragBambardekar --password PAT ghcr.io  
 ```
@@ -24,7 +24,7 @@ docker run ghcr.io/anuragbambardekar/hello-world-ghcr:latest
 
 # Automatically update image on GitHub Registry
 
-Go to the GitHub Repository's (where you have the Dockerfile) Settings
+Go to the GitHub Repository's (where you have the Dockerfile) Settings:
 
 ```
 /Dockerize-Python-Apps/settings/secrets/actions/new
@@ -37,3 +37,16 @@ Create a .github/workflows folder in root.
 Also move the Dockerfile to root.
 
 Then create a .yaml file with necessary details.
+
+Push the changes to GitHub.
+
+Head over to the Actions tab to see the image being updated.
+
+Then you can edit the .sh file with modified text.
+
+Push the changes.
+
+Come back to the local terminal and run this to see new changes.
+```cmd
+docker run ghcr.io/anuragbambardekar/hello-world-ghcr:latest
+```
