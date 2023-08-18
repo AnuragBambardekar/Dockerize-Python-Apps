@@ -24,3 +24,14 @@ docker run ghcr.io/anuragbambardekar/hello-world-ghcr:latest
 
 # Automatically update image on GitHub Registry
 
+Go to the GitHub Repository's (where you have the Dockerfile) Settings
+
+```
+/Dockerize-Python-Apps/settings/secrets/actions/new
+```
+
+Create a new 'Repository Secret' and add the PAT.
+
+Create a .github/workflows folder
+
+Then create a .yaml file.
