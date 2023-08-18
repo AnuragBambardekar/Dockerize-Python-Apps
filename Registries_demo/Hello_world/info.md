@@ -32,6 +32,8 @@ Go to the GitHub Repository's (where you have the Dockerfile) Settings
 
 Create a new 'Repository Secret' and add the PAT.
 
-Create a .github/workflows folder
+Create a .github/workflows folder in root.
 
-Then create a .yaml file.
+Also move the Dockerfile to root.
+
+Then create a .yaml file with necessary details.
