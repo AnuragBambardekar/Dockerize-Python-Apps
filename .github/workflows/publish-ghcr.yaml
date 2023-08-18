@@ -10,6 +10,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build and push the image
         run: |
-          docker login --username AnuragBambardekar --password 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 ghcr.io 
+          docker login --username anuragbambardekar --password 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 ghcr.io 
           docker build . --tag ghcr.io/anuragbambardekar/hello-world-ghcr:latest
           docker push ghcr.io/anuragbambardekar/hello-world-ghcr:latest
