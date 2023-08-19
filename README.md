@@ -101,6 +101,86 @@ docker-compose up --build -d
 
 Container registries are repositories that store and manage container images. Container images are standalone, executable software packages that include everything needed to run a piece of software, including the code, runtime, system tools, system libraries, and settings.
 
+# docker run vs docker compose
+
+```cmd
+docker run -d -p 8080:80 my-web-app
+```
+
+```yml
+version: '3'
+services:
+  web:
+    image: my-web-app
+    ports:
+      - "8080:80"
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+```
+
+You should use docker run for simple, single-container scenarios or as part of scripts and automation, while docker-compose is the preferred choice for defining and managing multi-container applications, especially during development and testing phases. Docker Compose simplifies the process of defining, configuring, and running multiple containers as a single application stack.
+
+# Most used Options & Commands
+
+```docker ps -a``` - lists all runnning processes
+---
+```docker image ls``` - lists all images
+---
+```docker container ls``` - lists all containers
+---
+```docker stop container_name/id``` - stops container
+---
+```docker rm container_name/id``` - deletes container
+---
+```docker rmi image_name``` - deletes image
+---
+```docker image prune -a``` - remove all unused images
+---
+```docker run -d ubuntu sleep 99 ``` - it runs the container in the background, detached from your current terminal session
+---
+```docker run --entrypoint echo ubuntu hello``` - override default entrypoint
+---
+```docker run --env MY_ENV=hello ubuntu printenv``` - define an environment variable
+---
+```docker run --init ubuntu ps``` - used to enable the "init" process as the PID 1 (the first process) inside a container. It is a recommended practice when running containers to improve process management and signal handling, especially for applications that may not handle signals and shutdown gracefully.
+---
+```docker run -it ubuntu``` - allow us to have an interactive session within the container
+---
+```docker run -d --name BambaContainer ubuntu``` - allow us to name the container
+---
+Specifying a network for my container - create isolated networks for our applications:
+
+```docker network ls```
+
+```docker network create my-network```
+
+```docker network ls```
+
+Create a container that detaches to it:
+
+```docker run -d --network my-network ubuntu```
+
+```docker ps```
+
+```docker container inspect container_id | grep network```
+---
+```docker run --platform linux/arm64/v8 ubuntu dpkg --print-architecture``` - used to specify the target platform architecture and operating system when pulling or running Docker images.
+---
+```docker run --restart unless-stopped ubuntu``` - used to define the container's restart policy. It specifies what action Docker should take when a container exits (either voluntarily or due to an error) and determines whether the container should be automatically restarted.
+
+always: This policy instructs Docker to always restart the container, regardless of how it exits. It's useful for services that should always be running.
+
+on-failure: With this policy, Docker will restart the container only if it exits with a non-zero exit status (i.e., it fails). You can additionally specify the maximum number of restart attempts using the --restart-max-retries option.
+
+unless-stopped: This policy is similar to always, but it won't restart the container if it was manually stopped by the user. It's useful for services that should run continuously but allow for manual intervention to stop them.
+
+---
+```docker run --rm --name this-one-will-be-gone ubuntu ps``` - used to automatically remove a container when it exits. This can be helpful for cleaning up containers that are only intended to run temporarily, such as during testing or one-off tasks.
+---
+
+
 ## References:
 
 - https://www.youtube.com/watch?v=0TFWtfFY87U&t - Containerize Python Applications with Docker <br>
